@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logoPRODANLogin"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo_prodan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textTitleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="Iniciar Sesion"
+            android:textColor="#000000"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoPRODANLogin" />
+
+        <Button
+            android:id="@+id/buttonConfirmLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="80dp"
+            android:height="80dp"
+            android:backgroundTint="#e0af06"
+            android:text="Confirmar"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InputEmailLogin" />
+
+        <Button
+            android:id="@+id/buttonGoToRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:background="#00FFFFFF"
+            android:ellipsize="middle"
+            android:text="¿No tienes cuenta? Registrate aqui."
+            android:textColor="#000000"
+            android:textSize="10sp"
+            app:iconTint="#00532C2C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonConfirmLogin" />
+
+        <EditText
+            android:id="@+id/InputUserLogin"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="100dp"
+            android:background="#e0af06"
+            android:backgroundTint="#e0af06"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawableTint="#000000"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Usuario"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitleLogin" />
+
+        <EditText
+            android:id="@+id/InputEmailLogin"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="100dp"
+            android:background="#e0af06"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawableTint="#000000"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Contraseña"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InputUserLogin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
