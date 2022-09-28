@@ -1,13 +1,12 @@
 package com.example.prodanapp
 
 import InfiniteRecyclerAdapter
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.prodanapp.data.Sample
 import com.example.prodanapp.databinding.FragmentMainviewBinding
@@ -48,12 +47,24 @@ class MainviewFragment : Fragment() {
         infiniteRecyclerAdapter = InfiniteRecyclerAdapter(sampleList)
         infiniteViewPager.adapter = infiniteRecyclerAdapter
 
+        infiniteRecyclerAdapter.setOnItemClickListener(object : InfiniteRecyclerAdapter.onItemCLickListener{
+            override fun onItemClick(position: Int) {
+                (activity as MainActivity).replaceFragment(DetailsFragment())
+            }
+        })
+
+
         // setting the current item of the infinite ViewPager to the actual first element
         infiniteViewPager.currentItem = 1
 
         // function for registering a callback to update the ViewPager
         // and provide a smooth flow for infinite scroll
         onInfinitePageChangeCallback(sampleList.size + 2)
+
+        infiniteViewPager.setOnClickListener{
+            Toast.makeText(context, "HOLA", Toast.LENGTH_SHORT).show()
+        }
+
 
     }
 
