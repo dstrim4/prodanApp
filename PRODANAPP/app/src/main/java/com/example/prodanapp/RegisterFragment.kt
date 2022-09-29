@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.prodanapp.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
@@ -25,18 +26,11 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonConfirmRegister.setOnClickListener{
             //Check credentials
-            val goTo = MainviewFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, goTo)
-            transaction.commit()
-
+            findNavController().navigate(R.id.action_registerFragment_to_formFragment)
         }
 
         binding.buttonGoToLogin.setOnClickListener{
-            val goTo = LoginFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, goTo)
-            transaction.commit()
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
     }

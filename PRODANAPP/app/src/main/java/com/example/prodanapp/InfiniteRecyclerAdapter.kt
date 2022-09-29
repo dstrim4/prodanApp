@@ -12,8 +12,10 @@ import com.example.prodanapp.MainActivity
 import com.example.prodanapp.MainviewFragment
 import com.example.prodanapp.R
 import com.example.prodanapp.data.Sample
+import com.example.prodanapp.databinding.FragmentDetailsBinding
 
-class InfiniteRecyclerAdapter(originalList: List<Sample>)
+class InfiniteRecyclerAdapter(originalList: List<Sample>,
+                              private val funcionX : (Sample) -> Unit)
     : RecyclerView.Adapter<InfiniteRecyclerAdapter.InfiniteRecyclerViewHolder>() {
 
     private val newList: List<Sample> =
@@ -29,8 +31,8 @@ class InfiniteRecyclerAdapter(originalList: List<Sample>)
         mListener = listener
     }
 
-    class InfiniteRecyclerViewHolder(itemView: View, listener: onItemCLickListener)
-        : RecyclerView.ViewHolder(itemView) {
+    class InfiniteRecyclerViewHolder(val binding: FragmentDetailsBinding, funcionZ:(Int) -> Unit)
+        : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(sample: Sample) {
             val pagerTextView: TextView = itemView.findViewById(R.id.textView)
@@ -40,25 +42,18 @@ class InfiniteRecyclerAdapter(originalList: List<Sample>)
             pagerCardView.setBackgroundColor(Color.parseColor(sample.color))
         }
 
-        companion object {
-            fun from(parent: ViewGroup, mListener: onItemCLickListener) : InfiniteRecyclerViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val itemView = layoutInflater.inflate(R.layout.custom_infinite_pager_layout,
-                    parent, false)
-                return InfiniteRecyclerViewHolder(itemView, mListener)
-
-            }
-        }
         init {
             itemView.setOnClickListener {
-                Log.d("oClick", "Click!")
-                listener.onItemClick(adapterPosition)
+                funcionZ(adapterPosition)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfiniteRecyclerViewHolder {
-        return InfiniteRecyclerViewHolder.from(parent, mListener)
+        val view = FragmentDetailsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return InfiniteRecyclerViewHolder(view){
+            funcionX(newList[it])
+        }
     }
 
     override fun onBindViewHolder(holder: InfiniteRecyclerViewHolder, position: Int) {

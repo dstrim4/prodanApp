@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.prodanapp.data.Sample
 import com.example.prodanapp.databinding.FragmentMainviewBinding
@@ -44,12 +45,16 @@ class MainviewFragment : Fragment() {
 
         // setting up the infinite ViewPager
         infiniteViewPager = binding.infiniteViewPager
-        infiniteRecyclerAdapter = InfiniteRecyclerAdapter(sampleList)
+        infiniteRecyclerAdapter = InfiniteRecyclerAdapter(sampleList){
+            val bundle = Bundle()
+            bundle.putParcelable("sample", it)
+            findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment, bundle)
+        }
         infiniteViewPager.adapter = infiniteRecyclerAdapter
 
         infiniteRecyclerAdapter.setOnItemClickListener(object : InfiniteRecyclerAdapter.onItemCLickListener{
             override fun onItemClick(position: Int) {
-                (activity as MainActivity).replaceFragment(DetailsFragment())
+                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
             }
         })
 
@@ -64,8 +69,6 @@ class MainviewFragment : Fragment() {
         infiniteViewPager.setOnClickListener{
             Toast.makeText(context, "HOLA", Toast.LENGTH_SHORT).show()
         }
-
-
     }
 
 

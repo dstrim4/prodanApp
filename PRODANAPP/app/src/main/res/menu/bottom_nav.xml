@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Contactanos"
-        android:id="@+id/contact"
+        android:id="@+id/contactFragment"
         android:icon="@drawable/ic_help"/>
     <item android:title="Inicio"
-        android:id="@+id/home"
+        android:id="@+id/mainviewFragment"
         android:icon="@drawable/ic_home"/>
     <item android:title="Formulario"
-        android:id="@+id/form"
+        android:id="@+id/formFragment"
         android:icon="@drawable/ic_form"/>
 </menu>

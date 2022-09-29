@@ -1,46 +1,49 @@
 package com.example.prodanapp
 
-import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.TransitionManager
-import android.view.Gravity
+import android.os.PersistableBundle
+import android.util.Log
 import android.view.View
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.replace
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.prodanapp.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Start setup
-        replaceFragment(LoginFragment())
+        val navController = binding.navHostFragment.getFragment<NavHostFragment>().navController
+
+        val navView : BottomNavigationView = binding.bottomNavigationView
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.contactFragment, R.id.mainviewFragment, R.id.formFragment
+            )
+        )
+
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navView.setupWithNavController(navController)
+
         hideBottomNav()
 
-        //Bottom Navigation listener
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.contact -> replaceFragment(ContactFragment())
-                R.id.home -> replaceFragment(MainviewFragment())
-                R.id.form -> replaceFragment(FormFragment())
-
-                else -> {
-                }
-            }
-            true
-        }
     }
 
-    fun replaceFragment(fragment: Fragment){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
-        fragmentTransaction.commit()
+    override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onPostCreate(savedInstanceState, persistentState)
+
     }
 
     fun hideBottomNav(){
