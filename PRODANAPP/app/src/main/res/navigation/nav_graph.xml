@@ -52,6 +52,15 @@
         <action
             android:id="@+id/action_detailsFragment_to_termsFragment"
             app:destination="@id/termsFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_formFragment"
+            app:destination="@id/formFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_mainviewFragment2"
+            app:destination="@id/mainviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/termsFragment"

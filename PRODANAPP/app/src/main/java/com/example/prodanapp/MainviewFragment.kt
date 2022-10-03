@@ -65,10 +65,6 @@ class MainviewFragment : Fragment() {
         // function for registering a callback to update the ViewPager
         // and provide a smooth flow for infinite scroll
         onInfinitePageChangeCallback(sampleList.size + 2)
-
-        infiniteViewPager.setOnClickListener{
-            Toast.makeText(context, "HOLA", Toast.LENGTH_SHORT).show()
-        }
     }
 
 

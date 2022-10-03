@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.prodanapp.data.Sample
 import com.example.prodanapp.databinding.FragmentDetailsBinding
 
@@ -37,8 +38,10 @@ class DetailsFragment : Fragment() {
             binding.cardView.setBackgroundColor(Color.parseColor(sample.color))
             val text = sample.number.toString() + " Details"
             binding.textView.text = text
+        }
 
-
+        binding.buttonReturn.setOnClickListener(){
+            findNavController().navigate(R.id.action_detailsFragment_to_mainviewFragment)
         }
 
     }

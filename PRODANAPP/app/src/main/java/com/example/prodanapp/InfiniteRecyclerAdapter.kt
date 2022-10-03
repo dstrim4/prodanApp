@@ -12,7 +12,9 @@ import com.example.prodanapp.MainActivity
 import com.example.prodanapp.MainviewFragment
 import com.example.prodanapp.R
 import com.example.prodanapp.data.Sample
+import com.example.prodanapp.databinding.CustomInfinitePagerLayoutBinding
 import com.example.prodanapp.databinding.FragmentDetailsBinding
+import com.example.prodanapp.databinding.FragmentMainviewBinding
 
 class InfiniteRecyclerAdapter(originalList: List<Sample>,
                               private val funcionX : (Sample) -> Unit)
@@ -31,7 +33,7 @@ class InfiniteRecyclerAdapter(originalList: List<Sample>,
         mListener = listener
     }
 
-    class InfiniteRecyclerViewHolder(val binding: FragmentDetailsBinding, funcionZ:(Int) -> Unit)
+    class InfiniteRecyclerViewHolder(val binding: CustomInfinitePagerLayoutBinding, funcionZ:(Int) -> Unit)
         : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(sample: Sample) {
@@ -50,7 +52,7 @@ class InfiniteRecyclerAdapter(originalList: List<Sample>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfiniteRecyclerViewHolder {
-        val view = FragmentDetailsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = CustomInfinitePagerLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return InfiniteRecyclerViewHolder(view){
             funcionX(newList[it])
         }

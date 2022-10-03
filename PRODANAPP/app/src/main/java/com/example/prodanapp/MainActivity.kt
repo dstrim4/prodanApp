@@ -5,6 +5,7 @@ import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,29 +26,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navController = binding.navHostFragment.getFragment<NavHostFragment>().navController
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
-        val navView : BottomNavigationView = binding.bottomNavigationView
-
+        val navView: BottomNavigationView = binding.bottomNavigationView
+//
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.contactFragment, R.id.mainviewFragment, R.id.formFragment
             )
         )
 
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
+       // setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
         hideBottomNav()
 
     }
 
-    override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onPostCreate(savedInstanceState, persistentState)
-
-    }
-
-    fun hideBottomNav(){
+    private fun hideBottomNav(){
         binding.bottomNavigationView.visibility = View.GONE
     }
 
