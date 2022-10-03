@@ -40,8 +40,15 @@ class DetailsFragment : Fragment() {
             binding.textView.text = text
         }
 
-        binding.buttonReturn.setOnClickListener(){
+        binding.buttonReturn.setOnClickListener{
             findNavController().navigate(R.id.action_detailsFragment_to_mainviewFragment)
+        }
+
+        binding.buttonAccept.setOnClickListener{
+
+            var dialog = ConfirmationFragment()
+            dialog.show(parentFragmentManager, "customDialog")
+            dialog.isCancelable = false
         }
 
     }
