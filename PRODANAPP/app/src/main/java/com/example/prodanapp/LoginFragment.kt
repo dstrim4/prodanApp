@@ -24,13 +24,13 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonConfirmLogin.setOnClickListener{
+        binding.confirmButtonLogin.setOnClickListener{
             //Check credentials
             findNavController().navigate(R.id.action_loginFragment_to_mainviewFragment)
 
         }
 
-        binding.buttonGoToRegister.setOnClickListener{
+        binding.registerButtonLogin.setOnClickListener{
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }

@@ -2,15 +2,20 @@ package com.example.prodanapp
 
 import InfiniteRecyclerAdapter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.example.prodanapp.data.Api
+import com.example.prodanapp.data.RetrofitHelper
 import com.example.prodanapp.data.Sample
 import com.example.prodanapp.databinding.FragmentMainviewBinding
+import kotlinx.coroutines.launch
 
 
 class MainviewFragment : Fragment() {
@@ -58,13 +63,21 @@ class MainviewFragment : Fragment() {
             }
         })
 
-
         // setting the current item of the infinite ViewPager to the actual first element
         infiniteViewPager.currentItem = 1
 
         // function for registering a callback to update the ViewPager
         // and provide a smooth flow for infinite scroll
         onInfinitePageChangeCallback(sampleList.size + 2)
+
+        val retrofit = RetrofitHelper.getInstance().create(Api :: class.java)
+
+        lifecycleScope.launch{
+            val datos = retrofit.getEmployees()
+            Log.i("jorgefores", datos.body().toString())
+        }
+
+
     }
 
 

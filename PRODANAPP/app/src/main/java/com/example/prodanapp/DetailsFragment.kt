@@ -35,16 +35,17 @@ class DetailsFragment : Fragment() {
         arguments?.let {
             val sample = it.get("sample") as Sample
 
-            binding.cardView.setBackgroundColor(Color.parseColor(sample.color))
-            val text = sample.number.toString() + " Details"
-            binding.textView.text = text
+//            binding.cardView.setBackgroundColor(Color.parseColor(sample.color))
+//            val text = sample.number.toString() + " Details"
+//            binding.textView.text = text
         }
 
-        binding.buttonReturn.setOnClickListener{
+
+        binding.backButtonDetails.setOnClickListener{
             findNavController().navigate(R.id.action_detailsFragment_to_mainviewFragment)
         }
 
-        binding.buttonAccept.setOnClickListener{
+        binding.confirmButtonDetails.setOnClickListener{
 
             var dialog = ConfirmationFragment()
             dialog.show(parentFragmentManager, "customDialog")

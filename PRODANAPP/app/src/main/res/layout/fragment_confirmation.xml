@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/Title"
+            android:id="@+id/titleConfirmation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/Gracias"
+            android:id="@+id/thanksConfirmation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
@@ -30,27 +30,27 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Title" />
+            app:layout_constraintTop_toBottomOf="@+id/titleConfirmation" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageConfirmation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Gracias"
+            app:layout_constraintTop_toBottomOf="@+id/thanksConfirmation"
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/Dudas"
+            android:id="@+id/doubtsConfirmation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="¿Dudas? Contactanos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageConfirmation" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -60,17 +60,17 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Dudas">
+            app:layout_constraintTop_toBottomOf="@+id/doubtsConfirmation">
 
             <ImageView
-                android:id="@+id/Email"
+                android:id="@+id/emailIconConfirmation"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="3"
                 android:src="@drawable/ic_email" />
 
             <ImageView
-                android:id="@+id/Facebook"
+                android:id="@+id/facebookIconConfirmation"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="36dp"
@@ -78,14 +78,14 @@
                 android:src="@drawable/facebook_icon" />
 
             <ImageView
-                android:id="@+id/Instagram"
+                android:id="@+id/instagramIconConfirmation"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:src="@drawable/instagram_icon" />
 
             <ImageView
-                android:id="@+id/Twitter"
+                android:id="@+id/twitterIconConfirmation"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="3"
@@ -104,7 +104,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
             <TextView
-                android:id="@+id/emailtext"
+                android:id="@+id/emailTextConfirmation"
                 android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -112,7 +112,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/facebooktext"
+                android:id="@+id/facebookTextConfirmation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -120,7 +120,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/instagramtext"
+                android:id="@+id/instagramTextConfirmation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -128,7 +128,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/twittertext"
+                android:id="@+id/twitterTextConfirmation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -137,7 +137,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/acceptButton"
+            android:id="@+id/acceptButtonConfirmation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"

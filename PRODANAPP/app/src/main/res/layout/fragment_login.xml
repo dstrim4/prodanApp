@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/logoPRODANLogin"
+            android:id="@+id/logoLogin"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="10dp"
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textTitleLogin"
+            android:id="@+id/titleLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
@@ -30,10 +30,10 @@
             android:textSize="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logoPRODANLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/logoLogin" />
 
         <Button
-            android:id="@+id/buttonConfirmLogin"
+            android:id="@+id/confirmButtonLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
@@ -47,10 +47,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/InputEmailLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordInputLogin" />
 
         <Button
-            android:id="@+id/buttonGoToRegister"
+            android:id="@+id/registerButtonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
@@ -62,12 +62,12 @@
             app:iconTint="#00532C2C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonConfirmLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/confirmButtonLogin" />
 
         <EditText
-            android:id="@+id/InputUserLogin"
+            android:id="@+id/userInputLogin"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="100dp"
             android:background="#e0af06"
@@ -79,12 +79,12 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTitleLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/titleLogin" />
 
         <EditText
-            android:id="@+id/InputEmailLogin"
+            android:id="@+id/passwordInputLogin"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="100dp"
             android:background="#e0af06"
@@ -95,7 +95,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/InputUserLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/userInputLogin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

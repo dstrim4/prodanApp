@@ -28,7 +28,7 @@ class ConfirmationFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.acceptButton.setOnClickListener{
+        binding.acceptButtonConfirmation.setOnClickListener{
             dismiss()
         }
     }

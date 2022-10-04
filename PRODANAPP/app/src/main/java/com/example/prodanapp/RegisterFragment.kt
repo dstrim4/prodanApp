@@ -24,12 +24,12 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonConfirmRegister.setOnClickListener{
+        binding.confirmButtonRegister.setOnClickListener{
             //Check credentials
             findNavController().navigate(R.id.action_registerFragment_to_formFragment)
         }
 
-        binding.buttonGoToLogin.setOnClickListener{
+        binding.loginButtonRegister.setOnClickListener{
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 

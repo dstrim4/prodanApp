@@ -11,7 +11,7 @@
         android:layout_height="match_parent" >
 
         <ImageView
-            android:id="@+id/PRODANIcon"
+            android:id="@+id/logoForm"
             android:layout_width="124dp"
             android:layout_height="124dp"
             android:layout_marginTop="8dp"
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TitleText"
+            android:id="@+id/titleForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -29,10 +29,10 @@
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/PRODANIcon" />
+            app:layout_constraintTop_toBottomOf="@+id/logoForm" />
 
         <TextView
-            android:id="@+id/InstructionsText"
+            android:id="@+id/instructionsForm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -43,10 +43,10 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TitleText" />
+            app:layout_constraintTop_toBottomOf="@+id/titleForm" />
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/linearLayoutForm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -55,38 +55,38 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/InstructionsText">
+            app:layout_constraintTop_toBottomOf="@+id/instructionsForm">
 
             <Switch
-                android:id="@+id/Pregunta1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="Loredsd sdhsdj hdkjahsd kjashd akdh askjdhaskjd has kjas adka hkdja h" />
-
-            <Switch
-                android:id="@+id/Pregunta2"
+                android:id="@+id/q1Form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:text="Switch" />
 
             <Switch
-                android:id="@+id/Pregunta3"
+                android:id="@+id/q2Form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:text="Switch" />
 
             <Switch
-                android:id="@+id/Pregunta4"
+                android:id="@+id/q3Form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:text="Switch" />
 
             <Switch
-                android:id="@+id/Pregunta5"
+                android:id="@+id/q4Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Switch" />
+
+            <Switch
+                android:id="@+id/q5Form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
@@ -95,7 +95,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/buttonConfirm"
+            android:id="@+id/confirmButtonForm"
             android:layout_width="150dp"
             android:layout_height="56dp"
             android:backgroundTint="#e0af06"
@@ -103,7 +103,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutForm" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

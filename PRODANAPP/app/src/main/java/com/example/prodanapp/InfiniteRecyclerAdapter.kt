@@ -37,11 +37,11 @@ class InfiniteRecyclerAdapter(originalList: List<Sample>,
         : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(sample: Sample) {
-            val pagerTextView: TextView = itemView.findViewById(R.id.textView)
-            val pagerCardView: CardView = itemView.findViewById(R.id.cardView)
+//            val pagerTextView: TextView = itemView.findViewById(R.id.textView)
+//            val pagerCardView: CardView = itemView.findViewById(R.id.cardView)
 
-            pagerTextView.text = sample.number.toString()
-            pagerCardView.setBackgroundColor(Color.parseColor(sample.color))
+//            pagerTextView.text = sample.number.toString()
+//            pagerCardView.setBackgroundColor(Color.parseColor(sample.color))
         }
 
         init {
