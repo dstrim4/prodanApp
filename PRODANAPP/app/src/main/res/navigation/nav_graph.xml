@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_detailsFragment_to_mainviewFragment2"
             app:destination="@id/mainviewFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_googleFormFragment"
+            app:destination="@id/googleFormFragment" />
     </fragment>
     <fragment
         android:id="@+id/termsFragment"
@@ -103,4 +106,13 @@
         android:name="com.example.prodanapp.ConfirmationFragment"
         android:label="fragment_confirmation"
         tools:layout="@layout/fragment_confirmation" />
+    <fragment
+        android:id="@+id/googleFormFragment"
+        android:name="com.example.prodanapp.GoogleFormFragment"
+        android:label="fragment_google_form"
+        tools:layout="@layout/fragment_google_form" >
+        <action
+            android:id="@+id/action_googleFormFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

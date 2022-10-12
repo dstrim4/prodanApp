@@ -47,9 +47,10 @@ class DetailsFragment : Fragment() {
 
         binding.confirmButtonDetails.setOnClickListener{
 
-            var dialog = ConfirmationFragment()
+//            var dialog = ConfirmationFragment()
+            var dialog = GoogleFormFragment()
             dialog.show(parentFragmentManager, "customDialog")
-            dialog.isCancelable = false
+            dialog.isCancelable = true
         }
 
     }

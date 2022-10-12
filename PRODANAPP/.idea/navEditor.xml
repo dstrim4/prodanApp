@@ -113,6 +113,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="googleFormFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-726" />
+                            <option name="y" value="585" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="loginFragment">
                     <value>
                       <LayoutPositions>
