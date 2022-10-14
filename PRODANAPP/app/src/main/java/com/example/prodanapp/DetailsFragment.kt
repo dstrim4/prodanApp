@@ -38,6 +38,16 @@ class DetailsFragment : Fragment() {
 //            binding.cardView.setBackgroundColor(Color.parseColor(sample.color))
 //            val text = sample.number.toString() + " Details"
 //            binding.textView.text = text
+            binding.nameText.text = sample.nomAnimal
+            var text = sample.edadAnimal.toString()
+            text += if (sample.edadAnimal == 1){
+                " año"
+            } else{
+                " años"
+            }
+            binding.ageTextDetails.text = text
+            binding.raceTextDetails.text = sample.razaAnimal
+            binding.descriptionTextDetails.text = sample.descripcionAnimal
         }
 
 

@@ -46,46 +46,46 @@ class MainviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //getting the required sample data for filling the ViewPager
-        getSampleData()
-
-        // setting up the infinite ViewPager
-        infiniteViewPager = binding.infiniteViewPager
-        infiniteRecyclerAdapter = InfiniteRecyclerAdapter(sampleList){
-            val bundle = Bundle()
-            bundle.putParcelable("sample", it)
-            findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment, bundle)
-        }
-        infiniteViewPager.adapter = infiniteRecyclerAdapter
-
-        infiniteRecyclerAdapter.setOnItemClickListener(object : InfiniteRecyclerAdapter.onItemCLickListener{
-            override fun onItemClick(position: Int) {
-                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
-            }
-        })
-
-        // setting the current item of the infinite ViewPager to the actual first element
-        infiniteViewPager.currentItem = 1
-
-        // function for registering a callback to update the ViewPager
-        // and provide a smooth flow for infinite scroll
-        onInfinitePageChangeCallback(sampleList.size + 2)
+//        getSampleData()
 
         val retrofit = RetrofitHelper.getInstance().create(Api :: class.java)
 
         lifecycleScope.launch{
-            val datos = retrofit.getEmployees()
-            Log.i("jorgefores", datos.body().toString())
+            val datos = retrofit.getAnimals()
+
+            for (item in datos.body()?.data!!){
+                sampleList.add(item.sample)
+            }
+
+            // setting up the infinite ViewPager
+            infiniteViewPager = binding.infiniteViewPager
+            infiniteRecyclerAdapter = InfiniteRecyclerAdapter(sampleList){
+                val bundle = Bundle()
+                bundle.putParcelable("sample", it)
+                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment, bundle)
+            }
+            infiniteViewPager.adapter = infiniteRecyclerAdapter
+
+            infiniteRecyclerAdapter.setOnItemClickListener(object : InfiniteRecyclerAdapter.onItemCLickListener{
+                override fun onItemClick(position: Int) {
+                    findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
+                }
+            })
+
+            // setting the current item of the infinite ViewPager to the actual first element
+            infiniteViewPager.currentItem = 1
+
+            // function for registering a callback to update the ViewPager
+            // and provide a smooth flow for infinite scroll
+            onInfinitePageChangeCallback(sampleList.size + 2)
         }
-
-
     }
 
-
-    private fun getSampleData() {
-        sampleList.add(Sample(1, "#91C555"))
-        sampleList.add(Sample(2, "#F48E37"))
-        sampleList.add(Sample(3, "#FF7B7B"))
-    }
+//    private fun getSampleData() {
+//        sampleList.add(Sample(1, "#91C555"))
+//        sampleList.add(Sample(2, "#F48E37"))
+//        sampleList.add(Sample(3, "#FF7B7B"))
+//    }
 
     private fun onInfinitePageChangeCallback(listSize: Int) {
         infiniteViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

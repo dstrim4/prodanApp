@@ -37,11 +37,16 @@ class InfiniteRecyclerAdapter(originalList: List<Sample>,
         : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(sample: Sample) {
-//            val pagerTextView: TextView = itemView.findViewById(R.id.textView)
-//            val pagerCardView: CardView = itemView.findViewById(R.id.cardView)
+            binding.animalNamePagerLayout.text = sample.nomAnimal
 
-//            pagerTextView.text = sample.number.toString()
-//            pagerCardView.setBackgroundColor(Color.parseColor(sample.color))
+            var text = sample.edadAnimal.toString()
+            text += if (sample.edadAnimal == 1){
+                " año"
+            } else{
+                " años"
+            }
+            binding.animalAgePagerLayout.text = text
+//            binding.animalImagePagerLayout.setImageResource()
         }
 
         init {
