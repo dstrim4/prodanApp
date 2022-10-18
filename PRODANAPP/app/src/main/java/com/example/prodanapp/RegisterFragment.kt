@@ -30,6 +30,7 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.confirmButtonRegister.setOnClickListener{
+
             var registerRequest = RegisterRequest(binding.emailInputRegister.text.toString(),
                 binding.passwordInputRegister.text.toString(),
                 binding.userInputRegister.text.toString())
@@ -51,5 +52,4 @@ class RegisterFragment : Fragment() {
         }
 
     }
-
 }
