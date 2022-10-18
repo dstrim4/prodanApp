@@ -1,66 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TermsFragment">
+        <!--e0af06-->
+<!--        <Button-->
+<!--            android:id="@+id/acceptButtonTerms"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="152dp"-->
+<!--            android:backgroundTint="#e0af06"-->
+<!--            android:text="Aceptar"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/webView" />-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConstraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/titleTerms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Terminos y Condiciones"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/agreementTerms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Acuerdo de Confidencialidad"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTerms" />
-
-        <TextView
-            android:id="@+id/termsTerms"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Terminos"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/agreementTerms" />
+<!--        <CheckBox-->
+<!--            android:id="@+id/checkTerms"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/acceptButtonTerms"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/webView" />-->
 
         <Button
             android:id="@+id/acceptButtonTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="136dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="#e0af06"
             android:text="Aceptar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/termsTerms" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
             android:id="@+id/checkTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toStartOf="@+id/acceptButtonTerms"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/termsTerms" />
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/acceptButtonTerms"
+            app:layout_constraintEnd_toStartOf="@+id/acceptButtonTerms" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            app:layout_constraintBottom_toTopOf="@+id/acceptButtonTerms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

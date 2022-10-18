@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.example.prodanapp.data.Constants
 import com.example.prodanapp.databinding.FragmentTermsBinding
 
 class TermsFragment : DialogFragment() {
@@ -24,6 +25,11 @@ class TermsFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.webview.settings.javaScriptEnabled = true
+        binding.webview.loadUrl(Constants.TERMS_URL)
+
+
         binding.acceptButtonTerms.setOnClickListener{
             if (binding.checkTerms.isChecked){
                 val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)

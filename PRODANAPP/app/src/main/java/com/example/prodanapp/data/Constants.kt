@@ -2,5 +2,7 @@ package com.example.prodanapp.data
 
 object Constants{
     const val BASE_URL = "https://powerful-basin-43504.herokuapp.com/api/"
-    const val API_TOKEN = "3a99d38d154e2962f77887f781253f521fcf26b44a9e4c03456ad8ef3c79996e852867c022bc8f8f3da4341eef20928784fdde6450f67c358d12ffb1139081b170acc26859a33a1b3fa868b40ae9fe92e50efcfa701b9cbc6f688274d375f5fe4f6a44e3c4a973b6a907ab58b79ce4ce49e05b5f8bfb3318ad3f58f2818baa1e"
+    const val TERMS_URL = "https://raw.githubusercontent.com/dstrim4/prodanApp/main/NDA"
+    const val FORMS_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfpZ3SWqmOcEb8o9p57d78mXJPCrhVoxn_ay9Y4slemuCeM1g/viewform"
+    var API_TOKEN = ""
 }

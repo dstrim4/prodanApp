@@ -67,8 +67,15 @@ class MainviewFragment : Fragment() {
                     continue
                 if(item.sample.sexoAnimal == "M" && !likesFemales)
                     continue
+                if(item.sample.adoptado)
+                    continue
 
                 sampleList.add(item.sample)
+            }
+
+            if (sampleList.isEmpty()){
+
+                return@launch
             }
 
             // setting up the infinite ViewPager

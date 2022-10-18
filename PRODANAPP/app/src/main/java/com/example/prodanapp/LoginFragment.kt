@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.prodanapp.data.Api
+import com.example.prodanapp.data.Constants
 import com.example.prodanapp.data.RetrofitHelper
 import com.example.prodanapp.databinding.FragmentLoginBinding
 import kotlinx.coroutines.launch
@@ -38,6 +39,7 @@ class LoginFragment : Fragment() {
             lifecycleScope.launch{
                 val authenticationResponse = retrofit.postAuthentication(authenticationRequest)
                 if (authenticationResponse.isSuccessful){
+                    Constants.API_TOKEN = authenticationResponse.body()?.jwt ?: String()
                     findNavController().navigate(R.id.action_loginFragment_to_mainviewFragment)
                 }
                 else{

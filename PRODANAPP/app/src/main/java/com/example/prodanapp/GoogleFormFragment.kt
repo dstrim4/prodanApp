@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.example.prodanapp.data.Constants
 import com.example.prodanapp.databinding.FragmentGoogleFormBinding
-
-const val formsURL = "https://docs.google.com/document/d/1o1c5vd3GhzeQNa8f-d4UOAps4VDs2r4EPIUEWdsOP4c/edit?usp=sharing"
-
 
 class GoogleFormFragment : DialogFragment() {
 
@@ -29,9 +27,7 @@ class GoogleFormFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.webview.settings.javaScriptEnabled = true
-        binding.webview.loadUrl(formsURL)
-
-
+        binding.webview.loadUrl(Constants.FORMS_URL)
 
     }
 }
