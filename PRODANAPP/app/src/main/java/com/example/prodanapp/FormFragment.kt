@@ -54,7 +54,6 @@ class FormFragment : Fragment() {
             putBoolean("pregunta2", binding.q2Form.isChecked)
             putBoolean("pregunta3", binding.q3Form.isChecked)
             putBoolean("pregunta4", binding.q4Form.isChecked)
-            putBoolean("pregunta5", binding.q5Form.isChecked)
             commit()
         }
     }
@@ -67,7 +66,6 @@ class FormFragment : Fragment() {
         binding.q2Form.isChecked = preferences.getBoolean("pregunta2", false)
         binding.q3Form.isChecked = preferences.getBoolean("pregunta3", false)
         binding.q4Form.isChecked = preferences.getBoolean("pregunta4", false)
-        binding.q5Form.isChecked = preferences.getBoolean("pregunta5", false)
     }
 
 }

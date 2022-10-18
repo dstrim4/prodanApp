@@ -5,12 +5,12 @@ import kotlinx.parcelize.Parcelize
 
 data class AnimalsResponse(
     @SerializedName("data")
-    val `data`: List<Data>,
+    val `data`: List<AnimalsData>,
     @SerializedName("meta")
     val meta: Meta
 )
 
-data class Data(
+data class AnimalsData(
     @SerializedName("attributes")
     val sample: Sample,
     @SerializedName("id")

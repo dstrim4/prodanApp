@@ -38,7 +38,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="Ayudanos contestando este breve formulario para conocer su entorno y brindarle mejores recomendaciones."
+            android:text="Ayudanos contestando este breve formulario para conocer sus preferencias y brindarle mejores recomendaciones."
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,35 +62,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="Switch" />
+                android:text="Quiero ver perros"
+                android:textSize="20sp" />
 
             <Switch
                 android:id="@+id/q2Form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="Switch" />
+                android:text="Quiero ver gatos"
+                android:textSize="20sp" />
 
             <Switch
                 android:id="@+id/q3Form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="Switch" />
+                android:text="Quiero ver machos"
+                android:textSize="20sp" />
 
             <Switch
                 android:id="@+id/q4Form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="Switch" />
-
-            <Switch
-                android:id="@+id/q5Form"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="Switch" />
+                android:text="Quiero ver hembras"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
