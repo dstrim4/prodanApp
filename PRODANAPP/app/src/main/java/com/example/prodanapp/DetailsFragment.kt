@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.prodanapp.data.Sample
 import com.example.prodanapp.databinding.FragmentDetailsBinding
 
@@ -14,11 +15,6 @@ class DetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,9 +31,6 @@ class DetailsFragment : Fragment() {
         arguments?.let {
             val sample = it.get("sample") as Sample
 
-//            binding.cardView.setBackgroundColor(Color.parseColor(sample.color))
-//            val text = sample.number.toString() + " Details"
-//            binding.textView.text = text
             binding.nameText.text = sample.nomAnimal
             var text = sample.edadAnimal.toString()
             text += if (sample.edadAnimal == 1){
@@ -48,6 +41,9 @@ class DetailsFragment : Fragment() {
             binding.ageTextDetails.text = text
             binding.raceTextDetails.text = sample.razaAnimal
             binding.descriptionTextDetails.text = sample.descripcionAnimal
+//            Glide.with(requireActivity())
+//                .load(sample.imgAnimal.data[0].attributes.url)
+//                .into(binding.animalImageDetails)
         }
 
 

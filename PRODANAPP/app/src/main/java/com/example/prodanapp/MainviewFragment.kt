@@ -1,6 +1,7 @@
 package com.example.prodanapp
 
 import InfiniteRecyclerAdapter
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.prodanapp.data.Api
+import com.example.prodanapp.data.Constants
 import com.example.prodanapp.data.RetrofitHelper
 import com.example.prodanapp.data.Sample
 import com.example.prodanapp.databinding.FragmentMainviewBinding
@@ -46,29 +48,47 @@ class MainviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //getting the required sample data for filling the ViewPager
-//        getSampleData()
 
         val retrofit = RetrofitHelper.getInstance().create(Api :: class.java)
 
         lifecycleScope.launch{
-            val datos = retrofit.getAnimals()
+            val datos = retrofit.getAnimals("Bearer " + Constants.API_TOKEN)
 
             for (item in datos.body()?.data!!){
+                val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+
+                val likesDogs = preferences.getBoolean("pregunta1", true)
+                val likesCats = preferences.getBoolean("pregunta2", true)
+                val likesMales = preferences.getBoolean("pregunta3", true)
+                val likesFemales = preferences.getBoolean("pregunta4", true)
+
+                if(item.sample.razaAnimal == "Perro" && !likesDogs)
+                    continue
+                if(item.sample.razaAnimal == "Gato" && !likesCats)
+                    continue
+                if(item.sample.sexoAnimal == "H" && !likesMales)
+                    continue
+                if(item.sample.sexoAnimal == "M" && !likesFemales)
+                    continue
+
                 sampleList.add(item.sample)
             }
 
             // setting up the infinite ViewPager
             infiniteViewPager = binding.infiniteViewPager
-            infiniteRecyclerAdapter = InfiniteRecyclerAdapter(sampleList){
-                val bundle = Bundle()
-                bundle.putParcelable("sample", it)
-                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment, bundle)
+            infiniteRecyclerAdapter = InfiniteRecyclerAdapter(requireActivity(), sampleList){
+//                val bundle = Bundle()
+//                bundle.putParcelable("sample", it)
+//                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment, bundle)
+                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
+                Log.i("onclick", it.toString())
             }
             infiniteViewPager.adapter = infiniteRecyclerAdapter
 
-            infiniteRecyclerAdapter.setOnItemClickListener(object : InfiniteRecyclerAdapter.onItemCLickListener{
+            infiniteRecyclerAdapter.setOnItemClickListener(object : InfiniteRecyclerAdapter.OnItemCLickListener{
                 override fun onItemClick(position: Int) {
                     findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
+                    Log.i("onclick", position.toString())
                 }
             })
 
@@ -80,12 +100,6 @@ class MainviewFragment : Fragment() {
             onInfinitePageChangeCallback(sampleList.size + 2)
         }
     }
-
-//    private fun getSampleData() {
-//        sampleList.add(Sample(1, "#91C555"))
-//        sampleList.add(Sample(2, "#F48E37"))
-//        sampleList.add(Sample(3, "#FF7B7B"))
-//    }
 
     private fun onInfinitePageChangeCallback(listSize: Int) {
         infiniteViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

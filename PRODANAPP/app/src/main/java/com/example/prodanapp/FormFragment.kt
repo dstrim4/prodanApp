@@ -62,10 +62,10 @@ class FormFragment : Fragment() {
         val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
 
-        binding.q1Form.isChecked = preferences.getBoolean("pregunta1", false)
-        binding.q2Form.isChecked = preferences.getBoolean("pregunta2", false)
-        binding.q3Form.isChecked = preferences.getBoolean("pregunta3", false)
-        binding.q4Form.isChecked = preferences.getBoolean("pregunta4", false)
+        binding.q1Form.isChecked = preferences.getBoolean("pregunta1", true)
+        binding.q2Form.isChecked = preferences.getBoolean("pregunta2", true)
+        binding.q3Form.isChecked = preferences.getBoolean("pregunta3", true)
+        binding.q4Form.isChecked = preferences.getBoolean("pregunta4", true)
     }
 
 }

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.prodanapp.databinding.FragmentGoogleFormBinding
 
-const val formsURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9Nj7H1W5kaIEvD2gPP2nyQ1G4iKndw90BJWHs8_Maz6tADw/viewform"
+const val formsURL = "https://docs.google.com/document/d/1o1c5vd3GhzeQNa8f-d4UOAps4VDs2r4EPIUEWdsOP4c/edit?usp=sharing"
 
 
 class GoogleFormFragment : DialogFragment() {
