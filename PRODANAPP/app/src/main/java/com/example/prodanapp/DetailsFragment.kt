@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.prodanapp.data.Animal
 import com.example.prodanapp.data.Sample
 import com.example.prodanapp.databinding.FragmentDetailsBinding
 
@@ -29,21 +30,21 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            val sample = it.get("sample") as Sample
+            val animal = it.get("animal") as Animal
 
-            binding.nameText.text = sample.nomAnimal
-            var text = sample.edadAnimal.toString()
-            text += if (sample.edadAnimal == 1){
+            binding.nameText.text = animal.name
+            var text = animal.age
+            text += if (animal.age == "1"){
                 " año"
             } else{
                 " años"
             }
             binding.ageTextDetails.text = text
-            binding.raceTextDetails.text = sample.razaAnimal
-            binding.descriptionTextDetails.text = sample.descripcionAnimal
-//            Glide.with(requireActivity())
-//                .load(sample.imgAnimal.data[0].attributes.url)
-//                .into(binding.animalImageDetails)
+            binding.raceTextDetails.text = animal.race
+            binding.descriptionTextDetails.text = animal.description
+            Glide.with(requireActivity())
+                .load(animal.imgUrl)
+                .into(binding.animalImageDetails)
         }
 
 

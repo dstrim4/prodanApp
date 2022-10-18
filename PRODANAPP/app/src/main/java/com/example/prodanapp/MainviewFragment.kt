@@ -12,10 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.example.prodanapp.data.Api
-import com.example.prodanapp.data.Constants
-import com.example.prodanapp.data.RetrofitHelper
-import com.example.prodanapp.data.Sample
+import com.example.prodanapp.data.*
 import com.example.prodanapp.databinding.FragmentMainviewBinding
 import kotlinx.coroutines.launch
 
@@ -77,10 +74,12 @@ class MainviewFragment : Fragment() {
             // setting up the infinite ViewPager
             infiniteViewPager = binding.infiniteViewPager
             infiniteRecyclerAdapter = InfiniteRecyclerAdapter(requireActivity(), sampleList){
-//                val bundle = Bundle()
-//                bundle.putParcelable("sample", it)
-//                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment, bundle)
-                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
+
+                val animal = Animal(it.nomAnimal, it.edadAnimal.toString(), it.razaAnimal, it.descripcionAnimal, it.imgAnimal.data[0].attributes.url)
+                val bundle = Bundle()
+                bundle.putParcelable("animal", animal)
+                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment, bundle)
+//                findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
                 Log.i("onclick", it.toString())
             }
             infiniteViewPager.adapter = infiniteRecyclerAdapter
@@ -88,7 +87,6 @@ class MainviewFragment : Fragment() {
             infiniteRecyclerAdapter.setOnItemClickListener(object : InfiniteRecyclerAdapter.OnItemCLickListener{
                 override fun onItemClick(position: Int) {
                     findNavController().navigate(R.id.action_mainviewFragment_to_detailsFragment)
-                    Log.i("onclick", position.toString())
                 }
             })
 
